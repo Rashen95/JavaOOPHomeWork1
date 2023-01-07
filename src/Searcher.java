@@ -13,9 +13,7 @@ public class Searcher {
             String request = s.next();
             Map<Integer, Film> found_movies = new HashMap<>();
             if (request.isEmpty()) {
-                System.out.println("====================############=======================");
-                System.out.println("                Вы ничего не ввели                     ");
-                System.out.println("====================############=======================");
+                new Errors().error_input();
             } else {
                 int i = 1;
                 for (Film a : all_films) {
@@ -26,9 +24,7 @@ public class Searcher {
                 }
             }
             if (found_movies.isEmpty()) {
-                System.out.println("====================############=======================");
-                System.out.println("        По вашему запросу ничего не найдено            ");
-                System.out.println("====================############=======================");
+                new Errors().error_search();
                 while (!flag) {
                     System.out.println("Если вы хотите продолжить поиск, введите 1");
                     System.out.println("Если вы хотите вернутся в предыдущее меню, введите 2: ");
@@ -41,6 +37,9 @@ public class Searcher {
                             flag = true;
                             new Menu().hello_menu();
                         }
+                    }
+                    else {
+                        new Errors().error_change();
                     }
                 }
             } else {
@@ -92,15 +91,11 @@ public class Searcher {
                                     }
                                 }
                             } else {
-                                System.out.println("====================############=======================");
-                                System.out.println("                  Такого пункта нет                    ");
-                                System.out.println("====================############=======================");
+                                new Errors().error_change();
                             }
                         }
                     } else {
-                        System.out.println("====================############=======================");
-                        System.out.println("                  Такого пункта нет                    ");
-                        System.out.println("====================############=======================");
+                        new Errors().error_change();
                     }
                 }
             }

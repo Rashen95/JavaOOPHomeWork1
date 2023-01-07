@@ -1,8 +1,8 @@
 public class Film {
-    String name;
-    String release_year;
-    String director;
-    String genre;
+    private final String name;
+    private final String release_year;
+    private final String director;
+    private final String genre;
 
     Film(String arg_name, String arg_release_year, String arg_director, String arg_genre) {
         this.name = arg_name;

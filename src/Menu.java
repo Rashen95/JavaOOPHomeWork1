@@ -27,21 +27,17 @@ public class Menu {
                     for (Film p: all_films) {
                         p.info();
                     }
+                    flag = true;
                     menu();
-                    flag = true;
                 } else if (change.equals("2")) {
+                    flag = true;
                     new Searcher().search(all_films);
-                    flag = true;
                 } else {
-                    System.out.println("[--------------------------]");
-                    System.out.println(" Завершаю работу библиотеки ");
-                    System.out.println("[--------------------------]");
                     flag = true;
+                    new TerminateTheApplication().off();
                 }
             } else {
-                System.out.println("[----------------------]");
-                System.out.println(" Нет такого пункта меню ");
-                System.out.println("[----------------------]");
+                new Errors().error_change();
             }
         }
     }
